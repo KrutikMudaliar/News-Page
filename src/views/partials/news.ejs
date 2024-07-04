@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header  class="header">
+        <div class="header_logo">Node.js news</div>
+        <div class="container">            
+            <div class="toggle-container">
+                <span class="toggle-label">
+                    Light Mode
+                </span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="modeToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">Dark Mode</span>
+            </div>
+        </div>
+        <div class="header_search">
+            <form action="/" method="post">
+                <input type="text" name="Search" placeholder="Search for news" required>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+
+    </header>
+    <div class="wrapper">
+        <div class="news">
+            
+    <% articles.forEach(function(article, index){ %>
+        <a href="/article/<%- article.id %>" class="news_card">
+            <img src="<%- article.thumbnail_url %>" alt="<%- article.title.rendered %>">
+        <h2><%- article.title.rendered %></h2>
+        <p><%- article.excerpt.rendered %></p>
+    </a>
+        <% }) %>
+    </div>
+    </div>
+
+<script src="js/script.js"></script>
+    
+</body>
+</html>
